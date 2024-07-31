@@ -1,0 +1,13 @@
+FROM flwr/supernode:1.10.0
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN python -m pip install -U --no-cache-dir -r requirements.txt
+
+COPY client.py ./
+
+EXPOSE 8080
+EXPOSE 9092
+
+ENTRYPOINT ["flower-client-app", "client:app"]

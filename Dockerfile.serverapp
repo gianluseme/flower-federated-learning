@@ -1,0 +1,6 @@
+FROM flwr/serverapp:1.10.0
+
+WORKDIR /app
+
+COPY server.py ./
+ENTRYPOINT ["flower-server-app", "server:app"]
